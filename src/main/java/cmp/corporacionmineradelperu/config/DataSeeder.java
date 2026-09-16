@@ -25,7 +25,7 @@ public class DataSeeder implements CommandLineRunner {
                     .apellidos("Olazabal")
                     .email("admin@cmp.com")
                     .password(passwordEncoder.encode("admin123"))
-                    .rol(Rol.SUPERADMIN)
+                    .rol(Rol.ADMIN)
                     .build();
 
             usuarioRepository.save(superAdmin);

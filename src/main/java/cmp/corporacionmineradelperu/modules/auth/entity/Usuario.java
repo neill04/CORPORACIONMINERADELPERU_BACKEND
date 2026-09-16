@@ -10,7 +10,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,6 +34,10 @@ public class Usuario implements UserDetails {
 
     @Column(nullable = false)
     private String password;
+
+    @Builder.Default
+    @Column(nullable = false)
+    private boolean activo = true;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -70,6 +75,6 @@ public class Usuario implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return this.activo;
     }
 }

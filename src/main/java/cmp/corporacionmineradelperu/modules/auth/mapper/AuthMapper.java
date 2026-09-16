@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public interface UsuarioMapper {
+public interface AuthMapper {
 
     @Mapping(target = "token", source = "jwtToken")
     @Mapping(target = "rol", expression = "java(usuario.getRol().name())")
