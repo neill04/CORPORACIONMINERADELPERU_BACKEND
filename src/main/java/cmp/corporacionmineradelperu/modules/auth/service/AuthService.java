@@ -4,7 +4,7 @@ import cmp.corporacionmineradelperu.config.security.JwtService;
 import cmp.corporacionmineradelperu.modules.auth.dto.AuthResponse;
 import cmp.corporacionmineradelperu.modules.auth.dto.LoginRequest;
 import cmp.corporacionmineradelperu.modules.auth.entity.Usuario;
-import cmp.corporacionmineradelperu.modules.auth.mapper.UsuarioMapper;
+import cmp.corporacionmineradelperu.modules.auth.mapper.AuthMapper;
 import cmp.corporacionmineradelperu.modules.auth.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +18,7 @@ public class AuthService {
     private final UsuarioRepository usuarioRepository;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-    private final UsuarioMapper usuarioMapper;
+    private final AuthMapper authMapper;
 
     public AuthResponse login(LoginRequest request) {
 
@@ -35,6 +35,6 @@ public class AuthService {
         String token = jwtService.generateToken(usuario);
 
         // 4. Usamos el Mapper para devolver el record AuthResponse
-        return usuarioMapper.toAuthResponse(usuario, token);
+        return authMapper.toAuthResponse(usuario, token);
     }
 }

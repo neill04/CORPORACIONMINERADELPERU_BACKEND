@@ -5,7 +5,7 @@ spring:
   application:
     name: CORPORACIONMINERADELPERU
 
-  # Configuración para la base de datos PostgreSQL
+  # Configuracion para la base de datos PostgreSQL
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/cmp_db}
     username: ${DB_USERNAME:neillolazabal}
@@ -20,7 +20,7 @@ spring:
       leak-detection-threshold: 5000
       pool-name: CMPHikariPool
 
-  # Configuración de JPA (Hibernate)
+  # Configuracion de JPA (Hibernate)
   jpa:
     hibernate:
       ddl-auto: update
